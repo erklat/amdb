@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { makeApiCall } from '../actions/index';
+import Pagination from '../components/Pagination';
 import PropTypes from 'prop-types';
 
 export class List extends React.Component {
@@ -10,6 +11,7 @@ export class List extends React.Component {
 
   render() {
     return (
+      <div>
       <ul className="moviesList">
         {this.props.movies.map(el => (
           <li className="moviesList__item" key={el.id}>
@@ -17,6 +19,8 @@ export class List extends React.Component {
           </li>
         ))}
       </ul>
+      <Pagination />
+      </div>
     )
   }
 }
