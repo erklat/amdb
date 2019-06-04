@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makeApiCall } from '../actions/index';
 import Pagination from '../components/Pagination';
+import { getVisibleMovies } from '../selectors/index';
 import PropTypes from 'prop-types';
 
 export class List extends React.Component {
@@ -32,7 +33,7 @@ List.propTypes = {
 function mapStateToProps(state) {
   console.log('state: ', state);
   return {
-    movies: state.movies
+    movies: getVisibleMovies(state),
   }
 }
 

@@ -8,6 +8,8 @@ const initialState = {
   fetching: false,
   error: null,
   currentPage: 1,
+  moviesCount: 0,
+  pagingSize: 10,
 };
 
 function rootReducer(state = initialState, action) {
@@ -16,10 +18,11 @@ function rootReducer(state = initialState, action) {
     case API_CALL_REQUEST:
       return { ...state, fetching: true, error: null, }
     case API_CALL_SUCCESS:
-      return { ...state, fetching: false, error: null, movies: state.movies.concat(action.payload) }
+      return { ...state, fetching: false, error: null, movies: state.movies.concat(action.payload), moviesCount: action.payload.length }
     case API_CALL_FAILURE:
       return { ...state, fetching: false, error: action.error }
     case PAGE_CHANGED:
+      console.log(action.payload);
       return { ...state, currentPage: action.payload }
     default:
       return state;
