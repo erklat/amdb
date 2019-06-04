@@ -1,0 +1,25 @@
+.Pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  @include reset-list;
+
+  &__item {
+    flex-grow: 1;
+    flex-basis: rem(50);
+    padding: rem(15);
+    border: rem(1) solid;
+    box-sizing: border-box;
+
+    &:nth-of-type(2),
+    &:nth-last-of-type(2),
+    &--active {
+      display: block;
+    }
+
+    @include mq(bp('md')) {
+      display: block;
+    }
+  }
+}

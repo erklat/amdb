@@ -1,0 +1,36 @@
+.container {
+  display: block;
+  margin: 0 auto;
+  padding-left: rem(15);
+  padding-right: rem(15);
+
+  @include mq(bp('small')) {
+    max-width: map-get($container-max-widths, "sm");
+  }
+
+  @include mq(bp('medium')) {
+    max-width: map-get($container-max-widths, "md");
+  }
+
+  @include mq(bp('large')) {
+    max-width: map-get($container-max-widths, "lg");
+  }
+
+  @include mq(bp('xlarge')) {
+    max-width: map-get($container-max-widths, "xl");
+  }
+}
+
+.row {
+  margin: 0 rem(-15);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  display: block;
+  position: relative;
+  padding-left: rem(15);
+  padding-right: rem(15);
+  width: 100%;
+}

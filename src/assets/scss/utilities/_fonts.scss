@@ -1,0 +1,124 @@
+// Typography
+
+// $base-font-size
+//
+// Base font size in used in _mixins.scss
+//
+// $base-font-size - {number}
+
+$base-font-size:              16;
+
+// $base-line-height
+//
+// Base line-height in used in _mixins.scss
+//
+// $base-line-height - {number}
+
+$base-line-height:            24;
+
+// Font Stacks
+
+// $typefaces
+//
+// Configuration of webfonts imports.
+//
+// $typefaces - {map}
+// @family - {string}
+// @weight - {integer} or {keyword} i.e. 800, bold
+// @style - {keyword} i.e. normal, italic
+
+// $typefaces: (
+// 	'OpenSans-Light': (
+// 		family: 'Open Sans',
+// 		weight: 300,
+// 		style: normal,
+// 	),
+//     'OpenSans-Regular': (
+//         family: 'Open Sans',
+//         weight: 400,
+//         style: normal,
+//     ),
+//     'OpenSans-Bold': (
+//         family: 'Open Sans',
+//         weight: 700,
+//         style: bold,
+//     )
+// );
+
+// $font-family-sans-fallback
+//
+// Define font stack used for sans-serifs.
+//
+// $font-family-sans-fallback - {list}
+
+$font-family-sans-fallback:   'Arial', sans-serif;
+
+// $font-family-sans
+//
+// Define font stack used for sans-serifs.
+//
+// $font-family-sans - {list}
+// @requires - `$font-family-sans-fallback`
+
+$font-family-base:            'Overpass', 'Helvetica Neue', 'Helvetica', $font-family-sans-fallback;
+
+// $font-family-serif
+//
+// Define font stack used for serifs.
+//
+// $font-family-serif - {list}
+
+$font-family-serif:           'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
+
+// $font-family-monospace
+//
+// Define font stack used for monospaced copy.
+//
+// $font-family-monospace - {list}
+
+$font-family-monospace:       'Inconsolata', 'Menlo', 'Consolas', 'Bitstream Vera Sans Mono', 'Courier', monospace;
+
+// $font-family-display
+//
+// Define font stack used for headings.
+//
+// $font-family-display - {list}
+
+$font-family-display:         $font-family-base;
+
+// $font-family-default
+//
+// Define font stack used for paragraphs.
+//
+// $font-family-default - {string}
+// @requires - `$font-family-sans`
+
+//$font-family-default:         $font-family-sans;
+
+$font-family-default: $font-family-base;
+
+$font-family-buttons: 'Titillium Web', $font-family-sans-fallback;
+
+$google-fonts-url: 'https://fonts.googleapis.com/css?family=Titillium+Web|Overpass:300,400,700&subset=latin-ext';
+
+
+// ==========================================================================
+// $FONT-FACE
+// ==========================================================================
+
+@if variable-exists(google-fonts-url) {
+  @import url($google-fonts-url);
+}
+//
+// @if variable-exists(typefaces) {
+//   @each $file, $option in $typefaces {
+//     @font-face {
+//       font-family: map-get(map-get($typefaces, $file), family);
+//       font-style: map-get(map-get($typefaces, $file), style);
+//       font-weight: map-get(map-get($typefaces, $file), weight);
+//       src: url('../fonts/#{$file}.ttf') format('truetype'),
+//            url('../fonts/#{$file}.woff') format('woff'),
+//            url('../fonts/#{$file}.woff2') format('woff2');
+//     }
+//   }
+// }

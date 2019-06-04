@@ -1,0 +1,43 @@
+html, body {
+	font-family: $font-family-default;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+h1, .h1 {
+	$map: (
+		576px: 32px,
+		992px: 56px,
+		1200px: 70px,
+	);
+	@include poly-fluid-sizing('font-size', $map);
+}
+
+h2, .h2 {
+	$map: (
+		576px: 24px,
+		992px: 32px,
+		1200px: 36px,
+	);
+	@include poly-fluid-sizing('font-size', $map);
+}
+
+h3, .h3 {
+	$map: (
+		576px: 20px,
+		992px: 22px,
+		1200px: 24px,
+	);
+	@include poly-fluid-sizing('font-size', $map);
+}
+
+a {
+	text-decoration: none;
+}

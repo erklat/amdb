@@ -1,0 +1,41 @@
+// // Color Palette
+// // examples based on the official Sass styleguide
+//
+
+$theme-colors: (
+	"white"			: #fff,
+	"dark" 			: #2a2d2e,
+	"black" 		: #000,
+	"blue"      	: #2c4764,
+	"babyblue"		: #0a9ddd,
+	"cyan"			: #69d2e7,
+	"teal"			: #567798,
+	"link-hover" 	: lighten(#2c4764, 10%),
+	"title"			: #2f2933,
+	"cardbg"		: #f4f4f4,
+	"darkgray"		: #333,
+	"gray"      	: #c0c0c0,
+	"red"			: #e72841,
+	"soft-gray"		: #959595,
+	"disabled"	 	: #f7f8fb,
+	"text"			: #3a3f47,
+);
+
+$colours:
+    "white"     	#ffffff,
+	"light-blue"	#009cde,
+    "blueish"   	#f0f5f9;
+
+@each $value in $colours {
+  .#{nth($value, 1)} {
+    color: nth($value, 2);
+  }
+
+  .bg-#{nth($value, 1)} {
+    background-color: nth($value, 2);
+  }
+
+  .border-#{nth($value, 1)} {
+    border-color: nth($value, 2);
+  }
+}
