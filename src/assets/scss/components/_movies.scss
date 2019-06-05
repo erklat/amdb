@@ -1,0 +1,8 @@
+.Movies {
+
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-gap: rem(30);
+  grid-template-rows: repeat(3, rem(200));
+
+}

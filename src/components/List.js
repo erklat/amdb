@@ -13,14 +13,16 @@ export class List extends React.Component {
   render() {
     return (
       <div>
-      <ul className="moviesList">
-        {this.props.movies.map(el => (
-          <li className="moviesList__item" key={el.id}>
-            {el.title}
-          </li>
-        ))}
-      </ul>
-      <Pagination />
+        <section className="Movies">
+          {this.props.movies.map(el => (
+            <article className="Movies__item" key={el.id}>
+              <h3 className="Movies__item-title">
+                {el.title}
+              </h3>
+            </article>
+          ))}
+        </section>
+        <Pagination />
       </div>
     )
   }
