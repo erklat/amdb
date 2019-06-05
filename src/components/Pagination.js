@@ -43,7 +43,7 @@ export class ListPagination extends React.Component {
         startPage = totalPages - 9;
         endPage = totalPages;
       } else {
-        startPage = currentPage - 5;
+        startPage = currentPage - 4;
         endPage = currentPage + 4;
       }
     }
@@ -81,33 +81,27 @@ export class ListPagination extends React.Component {
     }
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <ul className="Pagination">
-              <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(1)}>
-                First
-              </li>
-              <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.currentPage - 1)}>
-                Prev
-              </li>
-              {pager.pages.map((page, index) => {
-                return(
-                  <li key={index} className={`Pagination__item ${pager.currentPage === page ? 'Pagination__item--active' : ''}`} onClick={() => this._setPage(page)}>
-                    {page}
-                  </li>
-                )
-              })}
-              <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.currentPage + 1)}>
-                Next
-              </li>
-              <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.totalPages)}>
-                Last
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <ul className="Pagination">
+        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(1)}>
+          First
+        </li>
+        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.currentPage - 1)}>
+          Prev
+        </li>
+        {pager.pages.map((page, index) => {
+          return(
+            <li key={index} className={`Pagination__item ${pager.currentPage === page ? 'Pagination__item--active' : ''}${pager.currentPage - 1 === page ? 'Pagination__item--next-left' : ''}${pager.currentPage + 1 === page ? 'Pagination__item--next-right' : ''}`} onClick={() => this._setPage(page)}>
+              {page}
+            </li>
+          )
+        })}
+        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.currentPage + 1)}>
+          Next
+        </li>
+        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.totalPages)}>
+          Last
+        </li>
+      </ul>
     )
   }
 }

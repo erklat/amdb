@@ -1,6 +1,17 @@
+@mixin display-child($n) {
+    @for $i from 2 through $n {
+      &:nth-of-type(#{$i}) {
+        display: block;
+      }
+
+      &:nth-last-of-type(#{$n}) {
+        display: block;
+      }
+    }
+ }
+
 .Pagination {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   @include reset-list;
@@ -11,15 +22,21 @@
     padding: rem(15);
     border: rem(1) solid;
     box-sizing: border-box;
+    display: none;
 
-    &:nth-of-type(2),
-    &:nth-last-of-type(2),
-    &--active {
+    @include display-child(2);
+
+    @include mq(bp(small)) {
+      &--next-left,
+      &--next-right { display: block; }
+    }
+
+    @include mq(bp(large)) {
       display: block;
     }
 
-    @include mq(bp('md')) {
-      display: block;
+    &--active {
+      background-color: map-get($theme-colors, "red"); display: block;
     }
   }
 }
