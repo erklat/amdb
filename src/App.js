@@ -16,13 +16,11 @@ function App() {
         </header>
 
         <Sidebar />
-        
+
         <main className="Layout__page">
           <List />
         </main>
-        <aside className="Layout__aside">
-          <h3>Aside</h3>
-        </aside>
+        
         <footer className="Layout__footer">
           Copyright 2018
         </footer>
