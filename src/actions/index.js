@@ -2,6 +2,7 @@ import { API_CALL_REQUEST } from '../constants/action-types';
 import { API_CALL_SUCCESS } from '../constants/action-types';
 import { API_CALL_FAILURE } from '../constants/action-types';
 import { PAGE_CHANGED } from '../constants/action-types';
+import { TOGGLE_MENU } from '../constants/action-types';
 
 
 export function makeApiCall() {
@@ -18,4 +19,8 @@ export function failApiCall() {
 
 export function changePage(payload) {
   return { type: PAGE_CHANGED, payload }
+}
+
+export function toggleMenu() {
+  return { type: TOGGLE_MENU }
 }

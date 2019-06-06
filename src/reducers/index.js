@@ -2,6 +2,7 @@ import { API_CALL_REQUEST } from '../constants/action-types';
 import { API_CALL_SUCCESS } from '../constants/action-types';
 import { API_CALL_FAILURE } from '../constants/action-types';
 import { PAGE_CHANGED } from '../constants/action-types';
+import { TOGGLE_MENU } from '../constants/action-types';
 
 const initialState = {
   movies: [],
@@ -9,7 +10,8 @@ const initialState = {
   error: null,
   currentPage: 1,
   moviesCount: 0,
-  pagingSize: 10,
+  pagingSize: 12,
+  menuActive: false,
 };
 
 function rootReducer(state = initialState, action) {
@@ -24,6 +26,9 @@ function rootReducer(state = initialState, action) {
     case PAGE_CHANGED:
       console.log(action.payload);
       return { ...state, currentPage: action.payload }
+    case TOGGLE_MENU:
+    console.log(state);
+      return { ...state, menuActive: !state.menuActive }
     default:
       return state;
   }

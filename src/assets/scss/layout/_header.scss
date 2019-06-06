@@ -1,4 +1,12 @@
 .Header {
   background-color: red;
-  grid-area: header;
+  //grid-area: header;
+  grid-column: span 4;
+
+
+  &__menu-button {
+    @include mq(bp(large)) {
+      display: none;
+    }
+  }
 }

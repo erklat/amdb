@@ -1,4 +1,26 @@
 .Navigation {
-  grid-area: nav;
   background: green;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: -100%;
+  transition: transform .3s ease-in-out;
+
+  @include mq(bp(large)) {
+    position: relative;
+    width: auto;
+    top: auto;
+    left: auto;
+    transition: none;
+    transform: none;
+    grid-area: nav;
+  }
+
+  &--is-active {
+    transform: translateX(100%);
+
+    @include mq(bp(large)) {
+      transform: none;
+    }
+  }
 }

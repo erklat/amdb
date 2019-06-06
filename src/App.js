@@ -3,37 +3,27 @@ import List from './components/List';
 import logo from './logo.svg';
 import './App.css';
 import './assets/scss/main.scss';
+import MenuButton from './components/MenuButton';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <div className="App">
-      <div className="App__container">
-        <header className="Header">
-          <img src="http://placehold.it/300x300" alt="bla" />
+    <div className="App Layout">
+      <div className="Layout__container">
+        <header className="Layout__header">
+          <img src="http://placehold.it/120x40" alt="bla" />
+          <MenuButton />
         </header>
-        <nav className="Navigation">
-          <ul>
-            <li>
-              Test 1
-            </li>
-            <li>
-              Test 1
-            </li>
-            <li>
-              Test 1
-            </li>
-            <li>
-              Test 1
-            </li>
-            <li>
-              Test 1
-            </li>
-          </ul>
-        </nav>
-        <main className="Page">
+
+        <Sidebar />
+        
+        <main className="Layout__page">
           <List />
         </main>
-        <footer className="Footer">
+        <aside className="Layout__aside">
+          <h3>Aside</h3>
+        </aside>
+        <footer className="Layout__footer">
           Copyright 2018
         </footer>
       </div>

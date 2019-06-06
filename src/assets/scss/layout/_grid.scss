@@ -1,51 +1,44 @@
-// .container {
-//   display: block;
-//   margin: 0 auto;
-//   padding-left: rem(15);
-//   padding-right: rem(15);
-//
-//   @include mq(bp('small')) {
-//     max-width: map-get($container-max-widths, "sm");
-//   }
-//
-//   @include mq(bp('medium')) {
-//     max-width: map-get($container-max-widths, "md");
-//   }
-//
-//   @include mq(bp('large')) {
-//     max-width: map-get($container-max-widths, "lg");
-//   }
-//
-//   @include mq(bp('xlarge')) {
-//     max-width: map-get($container-max-widths, "xl");
-//   }
-// }
-//
-// .row {
-//   margin: 0 rem(-15);
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-//
-// .col {
-//   display: block;
-//   position: relative;
-//   padding-left: rem(15);
-//   padding-right: rem(15);
-//   width: 100%;
-// }
-
-.App {
+.Layout {
   &__container {
     display: grid;
-    grid-template-areas:
-      'nav header header header'
-      'nav main main main'
-      'nav footer footer footer';
-    grid-gap: rem(30);
-    background: blue;
-    padding: rem(10);
-    height: 100vh;
-    box-sizing: border-box;
+    // grid-template-columns: 1fr;
+    grid-gap: rem(10);
+    padding: 0 rem(10);
+
+    @include mq(bp(large)) {
+      grid-template-areas:
+        'nav header header header'
+        'nav main main main'
+        'nav footer footer footer';
+      grid-template-columns: 300px repeat(3, 1fr);
+    }
+
+    // grid-gap: rem(30);
+    // background: blue;
+    // padding: rem(10);
+    // box-sizing: border-box;
   }
+
+  @include mq(bp(large)) {
+    grid-template-columns: repeat(4, 1fr);
+
+    &__navigation {
+      grid-column: span 1;
+    }
+
+    // &__aside {
+    //   grid-column: span 1;
+    // }
+    &__header,
+    &__footer,
+    &__page {
+      grid-column: span 3;
+    }
+  }
+}
+
+.container {
+  max-width: rem(1140);
+  margin: 0 auto;
+  //padding: 0 rem(15);
 }
