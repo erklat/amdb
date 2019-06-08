@@ -30,4 +30,8 @@
     color: map-get($theme-colors, "soft-gray");
     text-align: left;
   }
+
+  &__list {
+    grid-template-columns: 1fr;
+  }
 }

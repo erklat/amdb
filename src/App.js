@@ -1,47 +1,24 @@
 import React from 'react';
-import List from './components/List';
+import {Route, Redirect, Switch, BrowserRouter as Router} from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 import './assets/scss/main.scss';
-import MenuButton from './components/MenuButton';
-import Sidebar from './components/Sidebar';
+
+import MoviesGrid from './screens/MoviesGrid';
+import MoviesList from './screens/MoviesList';
 
 function App() {
   return (
-    <div className="App Layout">
-      <div className="Layout__container">
-        <header className="Layout__header">
-          <img src="http://placehold.it/120x40" alt="bla" />
-          <MenuButton />
-        </header>
-
-        <Sidebar />
-
-        <main className="Layout__page">
-          <List />
-        </main>
-        
-        <footer className="Layout__footer">
-          Copyright 2018
-        </footer>
+    <Router>
+      <div className="App Layout">
+        <Switch>
+          <Route exact path="/" component={MoviesGrid} />
+          <Route exact path="/grid" component={MoviesGrid} />
+          <Route exact path="/list" component={MoviesList} />
+        </Switch>
       </div>
-      {/*
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      */}
-    </div>
+    </Router>
   );
 }
 

@@ -3,7 +3,9 @@ import { API_CALL_SUCCESS } from '../constants/action-types';
 import { API_CALL_FAILURE } from '../constants/action-types';
 import { PAGE_CHANGED } from '../constants/action-types';
 import { TOGGLE_MENU } from '../constants/action-types';
-
+import { SET_SORT_PARAMS } from '../constants/action-types';
+import { SORT_MOVIES } from '../constants/action-types';
+import { get } from 'lodash';
 
 export function makeApiCall() {
   return { type: API_CALL_REQUEST }
@@ -23,4 +25,28 @@ export function changePage(payload) {
 
 export function toggleMenu() {
   return { type: TOGGLE_MENU }
+}
+
+export function setSortParams(payload) {
+  //console.log('setSortParams', sortKey, sortType);
+  console.log(payload);
+  return { type: SET_SORT_PARAMS, payload }
+  // return (dispatch, getState) => {
+  //   const { sortParams } = getState().sortParams;
+  //   const order = get(sortParams, 'order');
+  //   dispatch({
+  //     type: SET_SORT_PARAMS,
+  //     payload: {
+  //       data: {
+  //         key: sortKey,
+  //         order: order === 'desc' ? 'desc' : 'asc',
+  //         type: sortType
+  //       }
+  //     }
+  //   })
+  // }
+}
+
+export function sortMovies(payload) {
+  return { type: SORT_MOVIES, payload }
 }

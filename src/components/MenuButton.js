@@ -18,7 +18,7 @@ MenuButton.propTypes = {
 }
 
 function mapStateToProps(state) {
-  console.log('state: ', state);
+
   return {
     menuActive: state.menuActive,
   }
