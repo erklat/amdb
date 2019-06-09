@@ -28,25 +28,5 @@ export function toggleMenu() {
 }
 
 export function setSortParams(payload) {
-  //console.log('setSortParams', sortKey, sortType);
-  console.log(payload);
   return { type: SET_SORT_PARAMS, payload }
-  // return (dispatch, getState) => {
-  //   const { sortParams } = getState().sortParams;
-  //   const order = get(sortParams, 'order');
-  //   dispatch({
-  //     type: SET_SORT_PARAMS,
-  //     payload: {
-  //       data: {
-  //         key: sortKey,
-  //         order: order === 'desc' ? 'desc' : 'asc',
-  //         type: sortType
-  //       }
-  //     }
-  //   })
-  // }
-}
-
-export function sortMovies(payload) {
-  return { type: SORT_MOVIES, payload }
 }

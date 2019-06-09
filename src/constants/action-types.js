@@ -4,4 +4,3 @@ export const API_CALL_FAILURE = "API_CALL_FAILURE";
 export const PAGE_CHANGED = "PAGE_CHANGED";
 export const TOGGLE_MENU = "TOGGLE_MENU";
 export const SET_SORT_PARAMS = "SET_SORT_PARAMS";
-export const SORT_MOVIES = "SORT_MOVIES";

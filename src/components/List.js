@@ -7,13 +7,13 @@ import { getVisibleMovies } from '../selectors/index';
 import PropTypes from 'prop-types';
 import config from '../config.js';
 
+
 export class List extends React.Component {
   componentDidMount() {
     this.props.makeApiCall();
   }
 
   render() {
-    console.log(this.props.movies);
     return (
       <div className="container">
         <Sort />
@@ -39,7 +39,6 @@ List.propTypes = {
 }
 
 function mapStateToProps(state) {
-
   return {
     movies: getVisibleMovies(state),
   }

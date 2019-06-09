@@ -4,11 +4,7 @@ import { get, orderBy } from "lodash";
 const getCurrentPage = (state) => state.currentPage;
 const getMovies = (state) => state.movies;
 const getPagingSize = (state) => state.pagingSize;
-export const sortSelector = (state) => {
-
-  console.log('Sort selector', state);
-  return state.sortParams
-};
+const sortSelector = (state) => state.sortParams;
 
 console.log('sort selector: ', sortSelector);
 
@@ -21,15 +17,7 @@ function orderByType(data, type) {
   }
 }
 
-export const getVisibleMovies = createSelector(
-  [ getCurrentPage, getMovies, getPagingSize ],
-  (currentPage, movies, pagingSize) => {
-    console.log('selectors', currentPage, movies.slice(pagingSize * (currentPage - 1), pagingSize * currentPage));
-    return movies.slice(pagingSize * (currentPage - 1), pagingSize * currentPage);
-  }
-)
-
-export const sortMovies = createSelector(
+const sortMovies = createSelector(
   getMovies,
   sortSelector,
   (movies, sortParams) => {
@@ -44,3 +32,13 @@ export const sortMovies = createSelector(
     return movies;
   }
 )
+
+export const getVisibleMovies = createSelector(
+  [ getCurrentPage, sortMovies, getPagingSize, ],
+  (currentPage, movies, pagingSize) => {
+    console.log('selectors', currentPage, movies.slice(pagingSize * (currentPage - 1), pagingSize * currentPage));
+    return movies.slice(pagingSize * (currentPage - 1), pagingSize * currentPage);
+  }
+)
+
+
