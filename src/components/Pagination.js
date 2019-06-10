@@ -73,6 +73,13 @@ export class ListPagination extends React.Component {
     }
   }
 
+  componentDidMount() {
+    console.log('pagination moundted');
+    if (this.props.moviesCount) {
+      this._setPage(this.props.currentPage);
+    }
+  }
+
   render() {
     let pager = this.state.pager;
 

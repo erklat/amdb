@@ -8,9 +8,6 @@ import Sort from '../components/Sort';
 import config from '../config.js';
 
 export class List extends React.Component {
-  componentDidMount() {
-    this.props.makeApiCall();
-  }
 
   render() {
     return (
@@ -27,6 +24,7 @@ export class List extends React.Component {
             </article>
           ))}
         </section>
+
         <Pagination />
       </div>
     )

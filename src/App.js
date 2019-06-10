@@ -1,25 +1,53 @@
 import React from 'react';
 import {Route, Redirect, Switch, BrowserRouter as Router} from 'react-router-dom';
 
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { makeApiCall } from './actions/index';
+import Pagination from './components/Pagination';
+import Grid from './components/Grid';
+import List from './components/List';
+import MenuButton from './components/MenuButton';
+import Sidebar from './components/Sidebar';
+
 import './App.css';
 import './assets/scss/main.scss';
 
-import MoviesGrid from './screens/MoviesGrid';
-import MoviesList from './screens/MoviesList';
+class App extends React.Component {
+  componentDidMount() {
+    this.props.makeApiCall();
+  }
 
-function App() {
-  return (
-    <Router>
-      <div className="App Layout">
-        <Switch>
-          <Route exact path="/" component={MoviesGrid} />
-          <Route exact path="/grid" component={MoviesGrid} />
-          <Route exact path="/list" component={MoviesList} />
-        </Switch>
-      </div>
-    </Router>
-  );
+  render() {
+    return (
+      <Router>
+        <div className="App Layout">
+        <div className="Layout__container">
+          <header className="Layout__header">
+            <img src="http://placehold.it/120x40" alt="bla" />
+            <MenuButton />
+          </header>
+
+          <Sidebar />
+
+        <main className="Layout__page">
+          <Switch>
+            <Route exact path="/" component={Grid} />
+            <Route exact path="/grid" component={Grid} />
+            <Route exact path="/list" component={List} />
+          </Switch>
+        </main>
+
+        <footer className="Layout__footer">
+          Copyright 2018
+        </footer>
+        </div>
+        </div>
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default connect(
+  null,
+  { makeApiCall }
+)(App);

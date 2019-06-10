@@ -5,13 +5,9 @@ import Pagination from '../components/Pagination';
 import Sort from '../components/Sort';
 import { getVisibleMovies } from '../selectors/index';
 import PropTypes from 'prop-types';
-import config from '../config.js';
 
 
 export class List extends React.Component {
-  componentDidMount() {
-    this.props.makeApiCall();
-  }
 
   render() {
     return (
@@ -21,7 +17,7 @@ export class List extends React.Component {
           {this.props.movies.map(el => (
             <article className="Movies__list-item" key={el.id}>
               <h3 className="Movies__list-item-title">
-                {el.title} 
+                {el.title}
               </h3>
               <time className="Movies__list-item-date" dateTime={el.release_date}>{el.release_date}</time>
             </article>
