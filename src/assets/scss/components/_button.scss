@@ -1,0 +1,12 @@
+.Button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        outline: none;
+    }
+}

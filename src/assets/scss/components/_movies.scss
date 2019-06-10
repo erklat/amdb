@@ -34,4 +34,11 @@
   &__list {
     grid-template-columns: 1fr;
   }
+
+  &__list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(10) rem(15);
+    border-bottom: rem(1) solid map-get($theme-colors, 'soft-gray' );
+  }
 }

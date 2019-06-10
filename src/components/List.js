@@ -19,12 +19,11 @@ export class List extends React.Component {
         <Sort />
         <section className="Movies Movies__list" id="movies-list">
           {this.props.movies.map(el => (
-            <article className="Movies__item" key={el.id} style={{backgroundImage: `url(${config.IMAGE_PATH + el.backdrop_path})`}}>
-              <div className="Movies__item-gradient">
-                <h3 className="Movies__item-title">
-                  {el.title} {el.release_date}
-                </h3>
-              </div>
+            <article className="Movies__list-item" key={el.id}>
+              <h3 className="Movies__list-item-title">
+                {el.title} 
+              </h3>
+              <time className="Movies__list-item-date" dateTime={el.release_date}>{el.release_date}</time>
             </article>
           ))}
         </section>

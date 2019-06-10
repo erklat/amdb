@@ -1,4 +1,6 @@
 .Layout {
+
+  background-color: map-get($theme-colors, "darkgray");
   &__container {
     display: grid;
     // grid-template-columns: 1fr;
