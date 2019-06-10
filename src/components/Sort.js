@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import { setSortParams } from '../actions/index';
 import PropTypes from 'prop-types';
-import config from '../config.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortAlphaUp, faSortAlphaDown, faCalendarAlt, faLongArrowAltUp, faLongArrowAltDown, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
@@ -14,18 +13,18 @@ export class Sort extends React.Component {
     return (
       <div className="container">
         <div className="Sort">
-          {this.props.sortParams.key ? <button className="Button" onClick={() => this.props.setSortParams({})}><FontAwesomeIcon icon={faMinusCircle} /></button> : null }
-          <button className="Button" onClick={() => this.props.setSortParams({key: 'title', type: ''})} title="Sort by title descending">  
-            <FontAwesomeIcon icon={faSortAlphaDown} />
+          {this.props.sortParams.key ? <button className="Button" onClick={() => this.props.setSortParams({})}><FontAwesomeIcon icon={faMinusCircle} className="Button__icon" /></button> : null }
+          <button className={`Button ${this.props.sortParams.id === 1 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'title', type: '', id: 1})} title="Sort by title descending">
+            <FontAwesomeIcon icon={faSortAlphaDown} className="Button__icon" />
           </button>
-          <button className="Button" onClick={() => this.props.setSortParams({key: 'title', type: '', order: 'asc' })} title="Sort by title descending">
-            <FontAwesomeIcon icon={faSortAlphaUp} />
+          <button className={`Button ${this.props.sortParams.id === 2 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'title', type: '', order: 'asc', id: 2 })} title="Sort by title descending">
+            <FontAwesomeIcon icon={faSortAlphaUp} className="Button__icon" />
           </button>
-          <button className="Button" onClick={() => this.props.setSortParams({key: 'release_date', type: 'date' })}>
-            <FontAwesomeIcon icon={faCalendarAlt} /><FontAwesomeIcon icon={faLongArrowAltDown} />
+          <button className={`Button ${this.props.sortParams.id === 3 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', id: 3 })}>
+            <FontAwesomeIcon icon={faCalendarAlt} className="Button__icon" /><FontAwesomeIcon icon={faLongArrowAltDown} className="Button__icon" />
           </button>
-          <button className="Button" onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', order: 'asc '})}>
-            <FontAwesomeIcon icon={faCalendarAlt} /><FontAwesomeIcon icon={faLongArrowAltUp} />
+          <button className={`Button ${this.props.sortParams.id === 4 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', order: 'asc ', id: 4})}>
+            <FontAwesomeIcon icon={faCalendarAlt} className="Button__icon" /><FontAwesomeIcon icon={faLongArrowAltUp} className="Button__icon" />
           </button>
         </div>
       </div>

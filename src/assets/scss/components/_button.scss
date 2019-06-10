@@ -3,10 +3,28 @@
     background: none;
     outline: none;
     cursor: pointer;
+    padding: rem(8) rem(12);
+    border-radius: rem(4);
+    transition: background-color .4s ease, box-shadow .4s ease;
+
+    &__icon {
+      path {
+        transition: fill .4s ease;
+      }
+    }
 
     &:hover,
     &:focus,
     &:focus-within {
         outline: none;
+    }
+
+    &:hover,
+    &--is-active {
+      .Button__icon {
+        path {
+          fill: map-get($theme-colors, 'green');
+        }
+      }
     }
 }
