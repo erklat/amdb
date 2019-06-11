@@ -12,7 +12,7 @@
         'nav header header header'
         'nav main main main'
         'nav footer footer footer';
-      grid-template-columns: 300px repeat(3, 1fr);
+      grid-template-columns: rem(100) repeat(3, 1fr);
       padding: 0;
     }
   }
