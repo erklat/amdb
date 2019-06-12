@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { changePage } from '../actions/index';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+
 export class ListPagination extends React.Component {
   state = {
     pager: {}
@@ -32,19 +35,19 @@ export class ListPagination extends React.Component {
     let totalPages = Math.ceil(this.props.moviesCount / this.props.pagingSize);
 
     let startPage, endPage;
-    if (totalPages <= 10) {
+    if (totalPages <= 6) {
       startPage = 1;
       endPage = totalPages;
     } else {
-      if (currentPage <= 6) {
+      if (currentPage <= 4) {
         startPage = 1;
-        endPage = 10;
+        endPage = 6;
       } else if (currentPage + 4 >= totalPages) {
-        startPage = totalPages - 9;
+        startPage = totalPages - 5;
         endPage = totalPages;
       } else {
-        startPage = currentPage - 4;
-        endPage = currentPage + 4;
+        startPage = currentPage - 2;
+        endPage = currentPage + 2;
       }
     }
 
@@ -74,7 +77,6 @@ export class ListPagination extends React.Component {
   }
 
   componentDidMount() {
-    console.log('pagination moundted');
     if (this.props.moviesCount) {
       this._setPage(this.props.currentPage);
     }
@@ -90,7 +92,8 @@ export class ListPagination extends React.Component {
     return (
       <ul className="Pagination">
         <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(1)}>
-          First
+          <FontAwesomeIcon icon={faChevronLeft} />
+          <FontAwesomeIcon icon={faChevronLeft} />
         </li>
         <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.currentPage - 1)}>
           Prev
