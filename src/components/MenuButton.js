@@ -10,8 +10,8 @@ class MenuButton extends React.Component {
   render() {
     return(
       <button onClick={this.props.toggleMenu} className="Header__menu-button Button">
-        <FontAwesomeIcon icon={faBars} className="Header__menu-button-icon" />
-        <FontAwesomeIcon icon={faTimes} className="Header__menu-button-icon" />
+        <FontAwesomeIcon icon={faBars} className={`Header__menu-button-icon ${!this.props.menuActive ? 'Header__menu-button-icon--is-active' : ''} `} />
+        <FontAwesomeIcon icon={faTimes} className={`Header__menu-button-icon ${this.props.menuActive ? 'Header__menu-button-icon--is-active' : ''} `} />
       </button>
     )
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import MenuButton from './MenuButton';
 
 import routes from '../routes/index';
 
@@ -57,7 +56,6 @@ class Sidebar extends React.Component {
             )
           })}
         </ul>
-        <MenuButton />
       </nav>
     )
   }

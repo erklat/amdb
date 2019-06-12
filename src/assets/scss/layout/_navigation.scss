@@ -53,7 +53,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: yellow;
+      background: map-get($theme-colors, "primary");
       transform: scaleX(0);
       transform-origin: 0 50%;
       transition: transform .4s ease-out;
@@ -65,7 +65,7 @@
     }
 
     &--is-active {
-      background-color: yellow;
+      background-color: map-get($theme-colors, "primary");
       svg path { fill: map-get($theme-colors, 'darkgray'); }
     }
   }

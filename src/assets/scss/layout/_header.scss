@@ -1,20 +1,29 @@
 .Header {
-  background-color: red;
-  //grid-area: header;
-  grid-column: span 4;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: rem(15) 0;
 
   &__menu-button {
+    min-width: rem(40);
+    min-height: rem(40);
+    position: relative;
+    background-color: map-get($theme-colors, "primary");
+
     @include mq(bp(large)) {
       display: none;
     }
   }
 
   &__menu-button-icon {
-    // opacity: 0;
+    opacity: 0;
     transition: opacity .4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    &--active {
+    &--is-active {
       opacity: 1;
     }
   }

@@ -22,7 +22,7 @@ class App extends React.Component {
       <Router>
         <div className="App Layout">
         <div className="Layout__container">
-          <header className="Layout__header">
+          <header className="Layout__header Header">
             <img src="http://placehold.it/120x40" alt="bla" />
             <MenuButton />
           </header>
