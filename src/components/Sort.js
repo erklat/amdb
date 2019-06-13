@@ -17,13 +17,13 @@ export class Sort extends React.Component {
           <button className={`Button ${this.props.sortParams.id === 1 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'title', type: '', id: 1})} title="Sort by title descending">
             <FontAwesomeIcon icon={faSortAlphaDown} className="Button__icon" />
           </button>
-          <button className={`Button ${this.props.sortParams.id === 2 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'title', type: '', order: 'asc', id: 2 })} title="Sort by title descending">
+          <button className={`Button ${this.props.sortParams.id === 2 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'title', type: '', order: 'asc', id: 2 })} title="Sort by title ascending">
             <FontAwesomeIcon icon={faSortAlphaUp} className="Button__icon" />
           </button>
-          <button className={`Button ${this.props.sortParams.id === 3 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', id: 3 })}>
+          <button className={`Button ${this.props.sortParams.id === 3 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', id: 3 })} title="Sort by year descending">
             <FontAwesomeIcon icon={faCalendarAlt} className="Button__icon" /><FontAwesomeIcon icon={faLongArrowAltDown} className="Button__icon" />
           </button>
-          <button className={`Button ${this.props.sortParams.id === 4 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', order: 'asc ', id: 4})}>
+          <button className={`Button ${this.props.sortParams.id === 4 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', order: 'asc ', id: 4})} title="Sort by year ascending">
             <FontAwesomeIcon icon={faCalendarAlt} className="Button__icon" /><FontAwesomeIcon icon={faLongArrowAltUp} className="Button__icon" />
           </button>
         </div>
