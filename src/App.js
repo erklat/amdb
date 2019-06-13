@@ -8,6 +8,7 @@ import Grid from './components/Grid';
 import List from './components/List';
 import MenuButton from './components/MenuButton';
 import Sidebar from './components/Sidebar';
+import PageAnimation from './components/PageAnimation';
 
 import './App.css';
 import './assets/scss/main.scss';
@@ -31,9 +32,9 @@ class App extends React.Component {
 
         <main className="Layout__page">
           <Switch>
-            <Route exact path="/" component={Grid} />
-            <Route exact path="/grid" component={Grid} />
-            <Route exact path="/list" component={List} />
+            <Route exact path="/" component={PageAnimation(Grid)} />
+            <Route exact path="/grid" component={PageAnimation(Grid)} />
+            <Route exact path="/list" component={PageAnimation(List)} />
           </Switch>
         </main>
 
