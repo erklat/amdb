@@ -1,10 +1,10 @@
 @mixin display-child($n) {
-    @for $i from 2 through $n {
+    @for $i from 0 through $n {
       &:nth-of-type(#{$i}) {
         display: flex;
       }
 
-      &:nth-last-of-type(#{$n}) {
+      &:nth-last-of-type(#{$i}) {
         display: flex;
       }
     }
@@ -13,34 +13,74 @@
 .Pagination {
   @include reset-list;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  margin-top: rem(20);
+  justify-content: center;
+  margin: rem(20) 0;
+
+  @include mq(bp(large)) {
+    justify-content: flex-end;
+  }
 
   &__item {
-    min-width: rem(40);
-    min-height: rem(40);
-    border: rem(1) solid;
+    width: rem(40);
+    height: rem(40);
+    box-shadow: inset 0 0 rem(2) map-get($theme-colors, "white");
+    color: map-get($theme-colors, "white");
     box-sizing: border-box;
     display: none;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     cursor: pointer;
+    margin-right: rem(10);
+    position: relative;
+    z-index: 0;
+    background-color: transparent;
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      display: block;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform .4s ease;
+      background-color: map-get($theme-colors, "primary");
+      z-index: -1;
+      border-radius: 50%;
+    }
+
+    &:last-of-type { margin-right: 0; }
+
+    @include hover {
+      &:after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
 
     @include display-child(2);
 
     @include mq(bp(small)) {
-      &--next-left,
-      &--next-right { display: flex; }
+      &--is-visible { display: flex; }
     }
 
     @include mq(bp(large)) {
       display: flex;
     }
 
-    &--active {
-      background-color: map-get($theme-colors, "red"); display: flex;
+    &--is-active {
+      background-color: map-get($theme-colors, "primary");
+      display: flex;
+    }
+
+    &--is-disabled {
+      box-shadow: inset 0 0 rem(2) darken(map-get($theme-colors, "white"), 60%);
+      color: darken(map-get($theme-colors, "white"), 60%);
+      pointer-events: none;
+      cursor: none;
     }
   }
 }

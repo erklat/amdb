@@ -35,15 +35,15 @@ export class ListPagination extends React.Component {
     let totalPages = Math.ceil(this.props.moviesCount / this.props.pagingSize);
 
     let startPage, endPage;
-    if (totalPages <= 6) {
+    if (totalPages <= 5) {
       startPage = 1;
       endPage = totalPages;
     } else {
-      if (currentPage <= 4) {
+      if (currentPage <= 3) {
         startPage = 1;
-        endPage = 6;
-      } else if (currentPage + 4 >= totalPages) {
-        startPage = totalPages - 5;
+        endPage = 5;
+      } else if (currentPage + 3 > totalPages) {
+        startPage = totalPages - 4;
         endPage = totalPages;
       } else {
         startPage = currentPage - 2;
@@ -69,6 +69,30 @@ export class ListPagination extends React.Component {
     };
   }
 
+  _shouldItemDisplay(page) {
+    /*
+    * this method contains logic that returns visible classes
+    + that correspond to styles in pagination.scss
+    */
+    let pager = this.state.pager;
+
+    if (!pager.pages || pager.pages <= 1) {
+      return false;
+    }
+
+    if (pager.currentPage === page) {
+      return 'is-active';
+    }
+
+    if (
+      pager.currentPage - 1 === page ||
+      pager.currentPage + 1 === page ||
+      (pager.currentPage === 1 && pager.currentPage + 2 === page) ||
+      (pager.currentPage === pager.totalPages && pager.currentPage - 2 === page)
+    ) {
+      return 'is-visible';
+    }
+  }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.moviesCount !== prevProps.moviesCount) {
@@ -91,25 +115,26 @@ export class ListPagination extends React.Component {
 
     return (
       <ul className="Pagination">
-        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(1)}>
+        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(1)}>
           <FontAwesomeIcon icon={faChevronLeft} />
           <FontAwesomeIcon icon={faChevronLeft} />
         </li>
-        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.currentPage - 1)}>
-          Prev
+        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.currentPage - 1)}>
+          <FontAwesomeIcon icon={faChevronLeft} />
         </li>
         {pager.pages.map((page, index) => {
           return(
-            <li key={index} className={`Pagination__item ${pager.currentPage === page ? 'Pagination__item--active' : ''}${pager.currentPage - 1 === page ? 'Pagination__item--next-left' : ''}${pager.currentPage + 1 === page ? 'Pagination__item--next-right' : ''}`} onClick={() => this._setPage(page)}>
+            <li key={index} className={`Pagination__item ${typeof this._shouldItemDisplay(page) !== 'undefined' ? 'Pagination__item--' + this._shouldItemDisplay(page) : ''}`} onClick={() => this._setPage(page)}>
               {page}
             </li>
           )
         })}
-        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.currentPage + 1)}>
-          Next
+        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.currentPage + 1)}>
+          <FontAwesomeIcon icon={faChevronRight} />
         </li>
-        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--disabled' : ''}`} onClick={() => this._setPage(pager.totalPages)}>
-          Last
+        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.totalPages)}>
+          <FontAwesomeIcon icon={faChevronRight} />
+          <FontAwesomeIcon icon={faChevronRight} />
         </li>
       </ul>
     )
