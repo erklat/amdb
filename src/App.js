@@ -9,6 +9,7 @@ import List from './components/List';
 import MenuButton from './components/MenuButton';
 import Sidebar from './components/Sidebar';
 import PageAnimation from './components/PageAnimation';
+import Spinner from './components/spinner/Spinner';
 
 import './App.css';
 import './assets/scss/main.scss';
@@ -23,6 +24,7 @@ class App extends React.Component {
       <Router>
         <div className="App Layout">
         <div className="Layout__container">
+          <Spinner />
           <header className="Layout__header Header">
             <img src="http://placehold.it/120x40" alt="bla" />
             <MenuButton />
