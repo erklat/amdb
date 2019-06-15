@@ -4,6 +4,7 @@ import { API_CALL_FAILURE } from '../constants/action-types';
 import { PAGE_CHANGED } from '../constants/action-types';
 import { TOGGLE_MENU } from '../constants/action-types';
 import { SET_SORT_PARAMS } from '../constants/action-types';
+import { CLOSE_ALERT } from '../constants/action-types';
 
 export function makeApiCall() {
   return { type: API_CALL_REQUEST }
@@ -27,4 +28,8 @@ export function toggleMenu() {
 
 export function setSortParams(payload) {
   return { type: SET_SORT_PARAMS, payload }
+}
+
+export function closeAlert(payload) {
+  return { type: CLOSE_ALERT, payload }
 }

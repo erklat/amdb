@@ -4,6 +4,7 @@ import { API_CALL_FAILURE } from '../constants/action-types';
 import { PAGE_CHANGED } from '../constants/action-types';
 import { TOGGLE_MENU } from '../constants/action-types';
 import { SET_SORT_PARAMS } from '../constants/action-types';
+import { CLOSE_ALERT } from '../constants/action-types';
 
 const initialState = {
   movies: [],
@@ -31,6 +32,8 @@ function rootReducer(state = initialState, action) {
       return { ...state, menuActive: !state.menuActive }
     case SET_SORT_PARAMS:
       return { ...state, sortParams: action.payload }
+    case CLOSE_ALERT:
+      return { ...state, error: action.payload }
     default:
       return state;
   }
