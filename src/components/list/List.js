@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { makeApiCall } from '../actions/index';
-import Pagination from '../components/Pagination';
-import Sort from '../components/Sort';
-import { getVisibleMovies } from '../selectors/index';
+import { getVisibleMovies } from '../../selectors/index';
 import PropTypes from 'prop-types';
+import MovieItem from '../movie-item/MovieItem';
+
+import './list.scss';
 
 
 export class List extends React.Component {
@@ -12,18 +12,11 @@ export class List extends React.Component {
   render() {
     return (
       <div className="container">
-        <Sort />
         <section className="Movies Movies__list" id="movies-list">
           {this.props.movies.map(el => (
-            <article className="Movies__list-item" key={el.id}>
-              <h3 className="Movies__list-item-title">
-                {el.title}
-              </h3>
-              <time className="Movies__list-item-date" dateTime={el.release_date}>{el.release_date}</time>
-            </article>
+            <MovieItem title={el.title} date={el.release_date} key={el.id} />
           ))}
         </section>
-        <Pagination />
       </div>
     )
   }
@@ -41,5 +34,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { makeApiCall }
+  null
 )(List);

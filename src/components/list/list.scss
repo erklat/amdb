@@ -1,0 +1,46 @@
+@import "../../assets/scss/utilities/index";
+
+.Movies {
+  &__grid {
+    --auto-grid-min-size: 16rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 1rem;
+  }
+
+  &__list {
+    grid-gap: 0;
+    grid-template-columns: 1fr;
+
+    .Movies__item {
+      height: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: rem(20) rem(15);
+      border-bottom: rem(1) solid map-get($theme-colors, 'soft-gray' );
+      color: white;
+    }
+
+    .Movies__item-title {
+      margin-top: rem(8);
+      @include mq(bp(medium)) {
+        margin-top: 0;
+      }
+    }
+
+    .Movies__item-gradient {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      background: none;
+      padding: 0;
+
+      @include mq(bp(medium)) {
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+  }
+}

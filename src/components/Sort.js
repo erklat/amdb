@@ -8,11 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortAlphaUp, faSortAlphaDown, faCalendarAlt, faLongArrowAltUp, faLongArrowAltDown, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 export class Sort extends React.Component {
-
   render() {
     return (
-      <div className="container">
-        <div className="Sort">
+      <div className="Sort">
           {this.props.sortParams.key ? <button className="Button" onClick={() => this.props.setSortParams({})}><FontAwesomeIcon icon={faMinusCircle} className="Button__icon" /></button> : null }
           <button className={`Button ${this.props.sortParams.id === 1 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'title', type: '', id: 1})} title="Sort by title descending">
             <FontAwesomeIcon icon={faSortAlphaDown} className="Button__icon" />
@@ -26,7 +24,6 @@ export class Sort extends React.Component {
           <button className={`Button ${this.props.sortParams.id === 4 ? 'Button--is-active' : ''}`} onClick={() => this.props.setSortParams({key: 'release_date', type: 'date', order: 'asc ', id: 4})} title="Sort by year ascending">
             <FontAwesomeIcon icon={faCalendarAlt} className="Button__icon" /><FontAwesomeIcon icon={faLongArrowAltUp} className="Button__icon" />
           </button>
-        </div>
       </div>
     )
   }

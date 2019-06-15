@@ -4,8 +4,6 @@ import { API_CALL_FAILURE } from '../constants/action-types';
 import { PAGE_CHANGED } from '../constants/action-types';
 import { TOGGLE_MENU } from '../constants/action-types';
 import { SET_SORT_PARAMS } from '../constants/action-types';
-import { SORT_MOVIES } from '../constants/action-types';
-import { get } from 'lodash';
 
 export function makeApiCall() {
   return { type: API_CALL_REQUEST }

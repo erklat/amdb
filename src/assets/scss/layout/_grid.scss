@@ -1,33 +1,45 @@
 .Layout {
 
   background-color: map-get($theme-colors, "darkgray");
-  &__container {
-    display: grid;
-    // grid-template-columns: 1fr;
-    grid-gap: rem(10);
-    padding: 0 rem(10);
+  min-height: 100vh;
 
-    @include mq(bp(large)) {
-      grid-template-areas:
-        'nav header header header'
-        'nav main main main'
-        'nav footer footer footer';
-      grid-template-columns: rem(100) repeat(3, 1fr);
-      padding: 0;
-    }
+  display: grid;
+  grid-gap: rem(10);
+  padding: 0 rem(10);
+  // grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-rows: 100px 1fr 100px;
+
+  @include mq(bp(large)) {
+    grid-template-areas:
+      'nav header'
+      'nav main'
+      'nav footer';
+    grid-template-columns: rem(100) 1fr;
+    padding: 0;
+  }
+
+  &__navigation {grid-area: nav;}
+  &__header {grid-area: header;}
+  &__footer { grid-area: footer; }
+  &__page {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
   }
 
   @include mq(bp(large)) {
 
-    &__navigation {
-      grid-column: span 1;
-    }
 
-    &__header,
-    &__footer,
-    &__page {
-      grid-column: span 3;
-    }
+    // &__header,
+    // &__footer,
+    // &__page {
+    //   grid-column: span 3;
+    // }
   }
 }
 
