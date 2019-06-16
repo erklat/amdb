@@ -114,29 +114,31 @@ export class ListPagination extends React.Component {
     }
 
     return (
-      <ul className="Pagination">
-        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(1)}>
-          <FontAwesomeIcon icon={faChevronLeft} />
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </li>
-        <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.currentPage - 1)}>
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </li>
-        {pager.pages.map((page, index) => {
-          return(
-            <li key={index} className={`Pagination__item ${typeof this._shouldItemDisplay(page) !== 'undefined' ? 'Pagination__item--' + this._shouldItemDisplay(page) : ''}`} onClick={() => this._setPage(page)}>
-              {page}
-            </li>
-          )
-        })}
-        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.currentPage + 1)}>
-          <FontAwesomeIcon icon={faChevronRight} />
-        </li>
-        <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.totalPages)}>
-          <FontAwesomeIcon icon={faChevronRight} />
-          <FontAwesomeIcon icon={faChevronRight} />
-        </li>
-      </ul>
+      <nav aria-label="Pagination navigation" aria-controls="movies">
+        <ul className="Pagination">
+          <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(1)} aria-label={pager.currentPage === 1 ? '' : `Go to first page`} aria-disabled={pager.currentPage === 1 ? 'true' : 'false'}>
+            <FontAwesomeIcon icon={faChevronLeft} />
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </li>
+          <li className={`Pagination__item ${pager.currentPage === 1 ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.currentPage - 1)} aria-label={pager.currentPage === 1 ? '' : `Go to page ${pager.currentPage - 1}`} aria-disabled={pager.currentPage === 1 ? 'true' : 'false'}>
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </li>
+          {pager.pages.map((page, index) => {
+            return(
+              <li key={index} className={`Pagination__item ${typeof this._shouldItemDisplay(page) !== 'undefined' ? 'Pagination__item--' + this._shouldItemDisplay(page) : ''}`} onClick={() => this._setPage(page)} aria-label={`Go to page ${page}`}>
+                {page}
+              </li>
+            )
+          })}
+          <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.currentPage + 1)} aria-label={pager.currentPage === pager.totalPages ? '' : `Go to page ${pager.currentPage + 1}`} aria-disabled={pager.currentPage === pager.totalPages ? 'true' : 'false'}>
+            <FontAwesomeIcon icon={faChevronRight} />
+          </li>
+          <li className={`Pagination__item ${pager.currentPage === pager.totalPages ? 'Pagination__item--is-disabled' : ''}`} onClick={() => this._setPage(pager.totalPages)} aria-label={pager.currentPage === pager.totalPages ? '' : `Go to last page`} aria-disabled={pager.currentPage === pager.totalPages ? 'true' : 'false'}>
+            <FontAwesomeIcon icon={faChevronRight} />
+            <FontAwesomeIcon icon={faChevronRight} />
+          </li>
+        </ul>
+      </nav>
     )
   }
 }

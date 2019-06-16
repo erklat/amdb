@@ -20,7 +20,8 @@ export class List extends React.Component {
         </section>
         <section>
           <div className="container">
-            <div className="Movies__grid">
+            <div className="Movies__grid" aria-labelledby="grid-title" id="movies" aria-sort={this.props.sortParams.order ? this.props.sortParams.order + 'ending' : ''}>
+              <h2 className="u-isVisuallyHidden" id="grid-title">{`Movies grid ${this.props.sortParams.type && this.props.sortParams.order ? 'sorted by ' + this.props.sortParams.type + ' ' + this.props.sortParams.order : ''}`}</h2>
               {this.props.movies.map(el => (
                 <MovieItem
                   title={el.title}
@@ -48,6 +49,7 @@ List.propTypes = {
 
 function mapStateToProps(state) {
   return {
+    sortParams: state.sortParams,
     movies: getVisibleMovies(state),
   }
 }

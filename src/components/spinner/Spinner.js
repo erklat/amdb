@@ -4,10 +4,6 @@ import './spinner.scss';
 import spinner from './spinner.svg'
 
 class Spinner extends React.Component {
-  componentDidMount() {
-      console.log('spinner mounted ', this.props);
-  }
-
   render() {
     if (this.props.fetching) {
       return(

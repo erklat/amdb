@@ -10,34 +10,24 @@ import { faHome, faListUl, faTh } from '@fortawesome/free-solid-svg-icons'
 
 
 class Sidebar extends React.Component {
-  // _renderRoutes() {
-  //   console.log(routes);
-  //   for (let route of routes) {
-  //     console.log(route);
-  //     return (
-  //
-  //     )
-  //   }
-  // }
-
   _renderNavLink(route) {
     let icon = null;
     switch (route.path) {
       case '/':
-        icon = <FontAwesomeIcon icon={faHome} className={`Navigation__icon`} />;
+        icon = <FontAwesomeIcon icon={faHome} className={`Navigation__icon`} aria-hidden="true" />;
         break;
       case '/list':
-        icon = <FontAwesomeIcon icon={faListUl} className="Navigation__icon" />;
+        icon = <FontAwesomeIcon icon={faListUl} className="Navigation__icon" aria-hidden="true" />;
         break;
       case '/grid':
-        icon = <FontAwesomeIcon icon={faTh} className="Navigation__icon" />;
+        icon = <FontAwesomeIcon icon={faTh} className="Navigation__icon" aria-hidden="true" />;
         break;
       default:
         return icon;
     }
 
     return (
-      <Link to={route.path} className={`Navigation__link ${route.path === this.props.location.pathname ? 'Navigation__link--is-active' : ''}`}>
+      <Link to={route.path} className={`Navigation__link ${route.path === this.props.location.pathname ? 'Navigation__link--is-active' : ''}`} role="menuitem">
         {icon}
         <span className="u-isVisuallyHidden">{route.title}</span>
       </Link>
@@ -46,11 +36,11 @@ class Sidebar extends React.Component {
 
   render() {
     return(
-      <nav className={`Layout__navigation Navigation ${this.props.menuActive === true ? 'Navigation--is-active' : ''}`}>
-        <ul className="Navigation__list">
+      <nav className={`Layout__navigation Navigation ${this.props.menuActive === true ? 'Navigation--is-active' : ''}`} id="navigation">
+        <ul className="Navigation__list" role="menubar" aria-label="AMDB navigation">
           {routes.map((route, key) => {
             return(
-              <li key={key} className="Navigation__list-item">
+              <li key={key} className="Navigation__list-item" role="none">
                 {this._renderNavLink(route)}
               </li>
             )
