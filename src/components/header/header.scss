@@ -10,7 +10,8 @@
     min-width: rem(40);
     min-height: rem(40);
     position: relative;
-    background-color: map-get($theme-colors, "primary");
+    // hack until button component created
+    background-color: map-get($theme-colors, "primary") !important;
 
     @include mq(bp(large)) {
       display: none;

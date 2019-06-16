@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 import MenuButton from '../MenuButton';
 
@@ -15,10 +16,12 @@ class Header extends React.Component {
       <header className="Layout__header">
         <div className="container">
           <div className={`Header ${this.props.menuActive ? 'Header--is-active' : ''}`}>
-            <h1 className="Header__title">
-              <FontAwesomeIcon icon={faTape} aria-hidden="true" className="Header__title-icon"/>
-              AMDB
-            </h1>
+            <Link to={'/'}>
+              <h1 className="Header__title">
+                <FontAwesomeIcon icon={faTape} aria-hidden="true" className="Header__title-icon"/>
+                AMDB
+              </h1>
+            </Link>
             <MenuButton />
           </div>
         </div>

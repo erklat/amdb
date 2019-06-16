@@ -1,4 +1,15 @@
 .Footer {
-  //grid-area: footer;
-  background: cyan;
+  &__text {
+    color: map-get($theme-colors, "white");
+    text-align: center;
+  }
+
+  &__link {
+    color: map-get($theme-colors, "primary");
+    transition: color .4s ease;
+
+    @include hover {
+      color: darken(map-get($theme-colors, "primary"), 10%);
+    }
+  }
 }

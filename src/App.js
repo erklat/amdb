@@ -24,7 +24,7 @@ class App extends React.Component {
       <Router>
         <div className="Layout">
           <Spinner />
-          
+
           <Alert />
 
           <Header />
@@ -40,8 +40,8 @@ class App extends React.Component {
             </Switch>
           </main>
 
-          <footer className="Layout__footer">
-            <p>Crafted by <a href="//github.com/erklat" target="blank" rel="noopener nofollow">erklat</a> form AM2</p>
+          <footer className="Layout__footer Footer">
+            <p className="Footer__text">Crafted by <a href="//github.com/erklat" target="blank" rel="noopener nofollow" className="Footer__link">erklat</a> for AM2</p>
           </footer>
         </div>
       </Router>
