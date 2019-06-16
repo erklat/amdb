@@ -25,7 +25,7 @@ function rootReducer(state = initialState, action) {
     case API_CALL_SUCCESS:
       return { ...state, fetching: false, error: null, movies: state.movies.concat(action.payload), moviesCount: action.payload.length }
     case API_CALL_FAILURE:
-      return { ...state, fetching: false, error: action.error }
+      return { ...state, fetching: false, error: action.payload }
     case PAGE_CHANGED:
       return { ...state, currentPage: action.payload }
     case TOGGLE_MENU:

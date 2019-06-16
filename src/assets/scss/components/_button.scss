@@ -28,4 +28,17 @@
         }
       }
     }
+
+    &--large {
+      padding: rem(12) rem(30);
+    }
+
+    &--primary {
+      background-color: map-get($theme-colors, "primary");
+      color: map-get($theme-colors, "white");
+
+      @include hover {
+        background-color: darken(map-get($theme-colors, "primary"), 10%);
+      }
+    }
 }
