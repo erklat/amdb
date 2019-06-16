@@ -4,10 +4,6 @@ const routes = [
     title: 'Home',
   },
   {
-    path: '/grid',
-    title: 'Movies grid',
-  },
-  {
     path: '/list',
     title: 'Movies list',
   },

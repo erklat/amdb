@@ -14,8 +14,8 @@ h6 {
 h1, .h1 {
 	$map: (
 		576px: 32px,
-		992px: 56px,
-		1200px: 70px,
+		992px: 48px,
+		1200px: 56px,
 	);
 	@include poly-fluid-sizing('font-size', $map);
 }

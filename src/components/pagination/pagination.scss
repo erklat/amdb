@@ -1,3 +1,5 @@
+@import "../../assets/scss/utilities/index";
+
 @mixin display-child($n) {
     @for $i from 0 through $n {
       &:nth-of-type(#{$i}) {

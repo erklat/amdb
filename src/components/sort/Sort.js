@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
-import { setSortParams } from '../actions/index';
+import { setSortParams } from '../../actions/index';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortAlphaUp, faSortAlphaDown, faCalendarAlt, faLongArrowAltUp, faLongArrowAltDown, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+
+import './sort.scss';
 
 export class Sort extends React.Component {
   render() {

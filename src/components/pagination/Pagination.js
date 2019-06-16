@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changePage } from '../actions/index';
+import { changePage } from '../../actions/index';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+
+import './pagination.scss';
 
 export class ListPagination extends React.Component {
   state = {

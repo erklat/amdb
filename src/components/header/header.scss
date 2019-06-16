@@ -1,0 +1,52 @@
+@import "../../assets/scss/utilities/index";
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: rem(15) 0;
+
+  &__menu-button {
+    min-width: rem(40);
+    min-height: rem(40);
+    position: relative;
+    background-color: map-get($theme-colors, "primary");
+
+    @include mq(bp(large)) {
+      display: none;
+    }
+  }
+
+  &__title {
+    color: map-get($theme-colors, 'white');
+    transition: transform .4s ease;
+  }
+
+  &__title-icon {
+    color: map-get($theme-colors, 'primary');
+    margin-right: rem(10);
+  }
+
+  &__menu-button-icon {
+    opacity: 0;
+    transition: opacity .4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &--is-active {
+      opacity: 1;
+    }
+  }
+
+  &--is-active {
+    .Header__title {
+      transform: translateX(rem(100));
+
+      @include mq(bp(large)) {
+        transform: none;
+      }
+    }
+  }
+}

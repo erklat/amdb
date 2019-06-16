@@ -4,8 +4,8 @@ import { getVisibleMovies } from '../../selectors/index';
 import PropTypes from 'prop-types';
 import MovieItem from '../movie-item/MovieItem';
 
-import Pagination from '../Pagination';
-import Sort from '../Sort';
+import Pagination from '../pagination/Pagination';
+import Sort from '../sort/Sort';
 
 import './list.scss';
 

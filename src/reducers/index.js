@@ -18,7 +18,6 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  console.log('action: ', action);
   switch(action.type) {
     case API_CALL_REQUEST:
       return { ...state, fetching: true, error: null, }

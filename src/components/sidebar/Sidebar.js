@@ -3,11 +3,12 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import routes from '../routes/index';
+import routes from '../../routes/index';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faListUl, faTh } from '@fortawesome/free-solid-svg-icons'
 
+import './sidebar.scss';
 
 class Sidebar extends React.Component {
   _renderNavLink(route) {
