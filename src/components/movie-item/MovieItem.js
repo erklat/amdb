@@ -6,7 +6,7 @@ import './movie-item.scss';
 class MovieItem extends React.Component {
   render() {
     return(
-      <article className="Movies__item" style={this.props.image ? {backgroundImage: `url(${config.IMAGE_PATH + this.props.image})`} : {} }>
+      <article className={`Movies__item ${this.props.classes}`} style={this.props.image ? {backgroundImage: `url(${config.IMAGE_PATH + this.props.image})`} : {} }>
         <div className="Movies__item-gradient">
           <h3 className="Movies__item-title">
             {this.props.title}

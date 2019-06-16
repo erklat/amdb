@@ -5,11 +5,61 @@
     display: flex;
     align-items: flex-end;
     height: rem(300);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
     background: {
       color: transparent;
       size: cover;
       repeat: no-repeat;
       position: center;
+    }
+
+    &--has-shine {
+      &:after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -60%;
+        width: 20%;
+        height: 200%;
+        opacity: 0;
+        transform: rotate(30deg);
+        background: rgba(map-get($theme-colors, "white"), 0.13);
+        background: linear-gradient(
+          to right,
+          rgba(map-get($theme-colors, "white"), 0.13) 0%,
+          rgba(map-get($theme-colors, "white"), 0.13) 77%,
+          rgba(map-get($theme-colors, "white"), 0.5) 92%,
+          rgba(map-get($theme-colors, "white"), 0.0) 100%
+        );
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(map-get($theme-colors, "white"), .2);
+        opacity: 0;
+        transition: opacity .7s ease;
+      }
+
+      @include hover {
+        &:before {
+          opacity: 1;
+        }
+
+        &:after {
+          opacity: 1;
+          left: 140%;
+          transition-property: left, top, opacity;
+          transition-duration: 0.7s, 0.7s, 0.15s;
+          transition-timing-function: ease;
+        }
+      }
     }
   }
 

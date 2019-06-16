@@ -12,7 +12,7 @@ export class List extends React.Component {
       <div className="container">
         <section className="Movies__grid">
           {this.props.movies.map(el => (
-            <MovieItem title={el.title} image={el.backdrop_path} key={el.id} />
+            <MovieItem title={el.title} image={el.backdrop_path} key={el.id} classes={['Movies__item--has-shine']} />
           ))}
         </section>
       </div>
