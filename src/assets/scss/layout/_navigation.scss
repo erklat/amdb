@@ -6,6 +6,7 @@
   left: rem(-100);
   transition: transform .3s ease-in-out;
   background: map-get($theme-colors, 'darkgray');
+  z-index: z(nav);
 
   @include mq(bp(large)) {
     position: relative;

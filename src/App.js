@@ -3,13 +3,12 @@ import {Route, Redirect, Switch, BrowserRouter as Router} from 'react-router-dom
 
 import { connect } from 'react-redux';
 import { makeApiCall } from './actions/index';
-import Pagination from './components/Pagination';
-import Sort from './components/Sort';
 import Grid from './components/grid/Grid';
 import List from './components/list/List';
+import NotFound from './components/not-found/NotFound';
 import MenuButton from './components/MenuButton';
 import Sidebar from './components/Sidebar';
-import PageAnimation from './components/PageAnimation';
+import PageShell from './components/pageshell/PageShell';
 import Spinner from './components/spinner/Spinner';
 import Alert from './components/alert/Alert';
 
@@ -18,6 +17,7 @@ import './assets/scss/main.scss';
 
 class App extends React.Component {
   componentDidMount() {
+    console.log(this.props);
     this.props.makeApiCall();
   }
 
@@ -25,33 +25,23 @@ class App extends React.Component {
     return (
       <Router>
         <div className="Layout">
-            <Spinner />
-            <Alert />
-            <header className="Layout__header Header">
-              <img src="http://placehold.it/120x40" alt="bla" />
-              <MenuButton />
-            </header>
+          <Spinner />
+          <Alert />
+          <header className="Layout__header Header">
+            <img src="http://placehold.it/120x40" alt="bla" />
+            <MenuButton />
+          </header>
 
-            <Sidebar />
+          <Sidebar />
 
           <main className="Layout__page">
-            <section id="sort">
-              <div className="container">
-                <Sort />
-              </div>
-            </section>
-            <section id="movies" className="Movies">
-              <Switch>
-                <Route exact path="/" component={PageAnimation(Grid)} />
-                <Route exact path="/grid" component={PageAnimation(Grid)} />
-                <Route exact path="/list" component={PageAnimation(List)} />
-              </Switch>
-            </section>
-            <section id="pagination">
-              <div className="container">
-                <Pagination />
-              </div>
-            </section>
+            <Switch>
+              <Route exact path="/" component={PageShell(Grid)} />
+              <Route exact path="/grid" component={PageShell(Grid)} />
+              <Route exact path="/list" component={PageShell(List)} />
+              <Route exact path="/404" component={PageShell(NotFound)} />
+              <Redirect to="/404" />
+            </Switch>
           </main>
 
           <footer className="Layout__footer">

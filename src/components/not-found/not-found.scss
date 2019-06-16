@@ -1,0 +1,22 @@
+@import "../../assets/scss/utilities/index";
+
+.NotFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+
+  &__icon {
+    path { fill: map-get($theme-colors, "primary"); }
+    font-size: rem(48);
+
+    @include mq(bp(medium)) {
+      font-size: rem(96);
+    }
+  }
+
+  &__title {    margin-top: rem(20);
+    color: map-get($theme-colors, "white");
+  }
+}
