@@ -20,11 +20,9 @@
       align-items: center;
       padding: rem(20) rem(15);
       border-bottom: rem(1) solid map-get($theme-colors, 'soft-gray' );
-      color: white;
     }
 
     .Movies__item-title {
-      margin-top: rem(8);
       @include mq(bp(medium)) {
         margin-top: 0;
       }

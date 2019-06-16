@@ -8,6 +8,7 @@
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    color: map-get($theme-colors, "white");
     background: {
       color: transparent;
       size: cover;
@@ -74,5 +75,16 @@
   &__item-title {
     color: map-get($theme-colors, "soft-gray");
     text-align: left;
+    margin-top: rem(8);
+  }
+
+  &__item-default-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+
+    path { fill: map-get($theme-colors, "primary"); }
   }
 }
